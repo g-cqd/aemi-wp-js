@@ -33,7 +33,7 @@ export class Environment {
      * @param {String} elementId String that specifies the ID value.
      * @returns Returns a reference to the first object with the specified value of the ID attribute.
      */
-    async byId( elementId ) {
+    byId( elementId ) {
         if ( this.has( elementId ) ) {
             return this.cache[elementId];
         }

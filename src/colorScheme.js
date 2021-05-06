@@ -5,6 +5,7 @@ import { Cookies } from '../ext/src/navigator.js';
 import { getGlobal } from '../ext/src/utils.js';
 import { catchError, isset } from './dom.js';
 import { aemi, Environment } from './environment.js';
+import { isOnFirstHeader, isWrapperToggled } from './theme.js';
 
 
 export class ColorScheme {
