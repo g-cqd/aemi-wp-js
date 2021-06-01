@@ -295,15 +295,22 @@ catch ( _ ) {
 
         const togglerObserver = new MutationObserver( togglerHandler );
 
-        togglerObserver.observe( aemi.get( 'nav-toggle' ), {
-            attributes: true,
-            attributeFilter: [ 'class' ]
-        } );
 
-        togglerObserver.observe( aemi.get( 'sea-toggle' ), {
-            attributes: true,
-            attributeFilter: [ 'class' ]
-        } );
+        const navigationToggler = aemi.get( 'nav-toggle' );
+        if ( navigationToggler ) {
+            togglerObserver.observe( navigationToggler, {
+                attributes: true,
+                attributeFilter: [ 'class' ]
+            } );
+        }
+
+        const searchToggler = aemi.get( 'sea-toggle' );
+        if ( searchToggler ) {
+            togglerObserver.observe( searchToggler, {
+                attributes: true,
+                attributeFilter: [ 'class' ]
+            } );
+        }
 
         /**
          *

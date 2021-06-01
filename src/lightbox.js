@@ -427,14 +427,6 @@ export default class Lightbox {
         addClass( this.prevButton, this.cn( 'active' ) );
     }
 
-    repositionControls() {
-        if ( this.options.responsive && this.nextButton && this.prevButton ) {
-            const shift = this.height / 2 - this.nextButton.offsetHeight / 2;
-            this.nextButton.style.top = `${ shift }px`;
-            this.prevButton.style.top = `${ shift }px`;
-        }
-    }
-
     setOptions( _ = {} ) {
 
         const setBooleanValue = function setBooleanValue( variable, def ) {
@@ -636,7 +628,6 @@ export default class Lightbox {
         addClass( this.box, this.cn( 'active' ) );
         if ( this.options.controls && this.currImages.length > 1 ) {
             this.initializeControls();
-            this.repositionControls();
         }
         this.currImage.img.addEventListener( 'error', imageErrorEvent => {
             if ( this.options.onloaderror ) {
@@ -752,10 +743,7 @@ export default class Lightbox {
         }
         attr( this.currImage.img, 'width', this.newImageWidth );
         attr( this.currImage.img, 'height', this.newImageHeight );
-        // reposition controls after timeout
-        setTimeout( () => {
-            this.repositionControls();
-        }, 200 );
+
         if ( this.options.onresize ) {
             this.options.onresize( this.currImage );
         }
